@@ -8,9 +8,9 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 app = Flask(__name__)
 
 # Load paths from environment variables
-model_path = os.getenv("MODEL_PATH")
-tokenizer_path = os.getenv("TOKENIZER_PATH")
-label_encoder_path = os.getenv("LABEL_ENCODER_PATH")
+model_path = os.getenv("MODEL_PATH", "model/bias_predict_model.keras")
+tokenizer_path = os.getenv("TOKENIZER_PATH", "model/tokenizer.pkl")
+label_encoder_path = os.getenv("LABEL_ENCODER_PATH", "model/label_encoder.pkl")
 
 # Load your trained model, tokenizer, and label encoder
 model = tf.keras.models.load_model(model_path)
