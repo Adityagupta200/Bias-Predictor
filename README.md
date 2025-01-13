@@ -7,7 +7,7 @@ This project provides a web application that predicts the type of bias in a give
 
 ### 1. **`StereoSet.json`**
    - **Description**: A dataset that evaluates biases in natural language models related to stereotypes in various domains, such as gender, race, religion, and profession.
-   - **Usage**: Used for training and evaluating the model on stereotype detection and classification tasks.
+   - **Usage**: Used for training and evaluating the model on classification tasks.
 
 ### 2. **`Gender_Bias_Sentences.txt`**
    - **Description**: Contains sentences showcasing explicit and implicit gender biases, such as stereotyping or unfair assumptions based on gender.
@@ -61,11 +61,6 @@ This project provides a web application that predicts the type of bias in a give
   2. If bias is detected, block the message and ask the user to rephrase, or anonymize the input before it reaches a support agent.
   3. For chatbot-generated responses, validate the response to ensure it remains neutral and unbiased.
 
-### **Educational Tools**
-- Utilize the bias detection model in tools aimed at raising awareness about bias in language.
-  1. Allow users to input sentences and observe real-time feedback from the model.
-  2. Display explanations for why a sentence may be considered biased to encourage learning and awareness.
-
 ## Setup Instructions
 
 To set up and run this project locally, follow these steps:
@@ -98,9 +93,9 @@ To set up and run this project locally, follow these steps:
 
 ## Example Usage
 
-1. Enter a sentence in the input box on the web interface (e.g., "Why is he working as a nurse? That’s a woman’s job.").
+1. Enter text in the input box on the web interface (e.g., "Why is he working as a nurse? That’s a woman’s job.").
 2. Click the "Predict Bias" button.
-3. The app processes the input and displays the predicted bias type (e.g., "Gender Bias") or indicates "None" if the input sentence is predicted not to be offensive enough.
+3. The app processes the input and displays the predicted bias type (e.g., "Gender Bias") or indicates "None" if the input text is predicted not to be offensive enough.
 
 ## Video Demonstration
 
