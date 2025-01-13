@@ -1,3 +1,6 @@
+# Copyright (c) [2025] [ADITYA GUPTA]
+# Licensed under the MIT License. See LICENSE for details.
+
 from sklearn.metrics import accuracy_score
 import joblib
 import tensorflow as tf
