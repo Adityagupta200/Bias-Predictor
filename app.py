@@ -7,6 +7,7 @@ import numpy as np
 import tensorflow as tf
 from flask import Flask, request, render_template
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+from transformers import pipeline
 
 app = Flask(__name__)
 
@@ -31,11 +32,15 @@ def index():
         max_len = max([len(seq) for seq in input_vector_sequences])
         X = pad_sequences(input_vector_sequences, maxlen=max_len)
 
-        predictions = model.predict(X)
-        predicted_classes = np.argmax(predictions, axis=1)
-        predicted_labels = label_encoder.inverse_transform(predicted_classes)
+        # Load the pre-trained offensive language detection model
+        classifier = pipeline('text-classification', model='unitary/toxic-bert')
 
-        result = f"Predicted Bias Type: {predicted_labels[0]}"
+        result = "Predicted Bias Type: None"
+        if classifier(user_input)[0]['score'] > 0.5:
+            predictions = model.predict(X)
+            predicted_classes = np.argmax(predictions, axis=1)
+            predicted_labels = label_encoder.inverse_transform(predicted_classes)
+            result = f"Predicted Bias Type: {predicted_labels[0]}"
         return render_template("index.html", result=result)
 
     return render_template("index.html", result="")
