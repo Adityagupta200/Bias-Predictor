@@ -61,14 +61,17 @@ This project provides a web application that predicts the type of bias in a give
   2. If bias is detected, block the message and ask the user to rephrase, or anonymize the input before it reaches a support agent.
   3. For chatbot-generated responses, validate the response to ensure it remains neutral and unbiased.
 
-## Setup Instructions
+**Refer to `implementation.py` for better understanding of how to implement in such applications**
+
+## Setup Instructions for testing the app
 
 To set up and run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   git clone https://github.com/Adityagupta200/Bias-Predictor.git
+   cd Bias-predictor
+   git checkout master
    ```
 
 2. Install the required Python dependencies:
@@ -99,10 +102,7 @@ To set up and run this project locally, follow these steps:
 
 ## Video Demonstration
 
-Here is a video demonstrating how the Bias Prediction App works:
-
-[Video Link Placeholder]  
-(Insert link to your project demo video here)
+**Here is a video demonstrating how the Bias Prediction App works: [Test video](https://github.com/Adityagupta200/Bias-Predictor/blob/3084a18bbd92f778cb07a7aa322ba9df88df35f4/test.mkv)**
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Adityagupta200/Bias-Predictor/blob/master/LICENSE) file for details.
