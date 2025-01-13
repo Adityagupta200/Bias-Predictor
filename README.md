@@ -105,4 +105,4 @@ Here is a video demonstrating how the Bias Prediction App works:
 (Insert link to your project demo video here)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Adityagupta200/Bias-Predictor/blob/master/LICENSE) file for details.
