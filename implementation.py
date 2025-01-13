@@ -1,3 +1,6 @@
+# Copyright (c) [2025] [ADITYA GUPTA]
+# Licensed under the MIT License. See LICENSE for details.
+
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences

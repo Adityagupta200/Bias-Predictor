@@ -1,3 +1,6 @@
+# Copyright (c) [2025] [ADITYA GUPTA]
+# Licensed under the MIT License. See LICENSE for details.
+
 import os
 import joblib
 import numpy as np
