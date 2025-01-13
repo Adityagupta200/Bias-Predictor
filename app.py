@@ -36,7 +36,7 @@ def index():
         classifier = pipeline('text-classification', model='unitary/toxic-bert')
 
         result = "Predicted Bias Type: None"
-        if classifier(user_input)[0]['score'] > 0.5:
+        if classifier(user_input)[0]['score'] > 0.4:
             predictions = model.predict(X)
             predicted_classes = np.argmax(predictions, axis=1)
             predicted_labels = label_encoder.inverse_transform(predicted_classes)
