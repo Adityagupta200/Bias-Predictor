@@ -100,7 +100,7 @@ To set up and run this project locally, follow these steps:
 
 1. Enter a sentence in the input box on the web interface (e.g., "Why is he working as a nurse? That’s a woman’s job.").
 2. Click the "Predict Bias" button.
-3. The app processes the input and displays the predicted bias type (e.g., "Gender Bias") or indicates "None" if no bias is detected.
+3. The app processes the input and displays the predicted bias type (e.g., "Gender Bias") or indicates "None" if the input sentence is predicted not to be offensive enough.
 
 ## Video Demonstration
 
