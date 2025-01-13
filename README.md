@@ -1,24 +1,65 @@
 # Bias Prediction App
 
 ## Project Description
-This project provides a web application that predicts the type of bias in a given sentence. It uses a trained machine learning model built with TensorFlow and Keras to classify user input into different bias categories. The app is built using Flask for serving the web interface and machine learning predictions.
+This project provides a web application that predicts the type of bias in a given sentence. It leverages a pre-trained machine learning model built with TensorFlow and Keras to classify user input into different bias categories. The app is designed for potential integration into applications like chatting platforms or social media services to monitor and flag biased or offensive content. The application also uses the `transformers` library to detect offensive language.
+
+## Description of Datasets
+
+### 1. **`StereoSet.json`**
+   - **Description**: A dataset that evaluates biases in natural language models related to stereotypes in various domains, such as gender, race, religion, and profession.
+   - **Usage**: Used for training and evaluating the model on classification tasks.
+
+### 2. **`Gender_Bias_Sentences.txt`**
+   - **Description**: Contains sentences showcasing explicit and implicit gender biases, such as stereotyping or unfair assumptions based on gender.
+   - **Usage**: Provides data to train the model to identify gender-related biases in input text.
+
+### 3. **`Race_Bias_Sentences.txt`**
+   - **Description**: Contains sentences reflecting racial biases, including discriminatory remarks or prejudiced assumptions based on ethnicity.
+   - **Usage**: Used to train the model to detect racial bias in text.
+
+### 4. **`Religion_Bias_Sentences.txt`**
+   - **Description**: Includes sentences with religious biases, such as judgments, stereotypes, or hostility toward specific religions.
+   - **Usage**: Helps train the model to identify religious bias in input text.
+
+### 5. **`Revised_Ethos_Dataset.csv`**
+   - **Description**: A comprehensive dataset combining various bias categories, including toxicity, hate speech, and stereotypes. Revised for better accuracy and usability in training.
+   - **Usage**: Used as a supplementary dataset to enhance model performance and generalization.
 
 ## Description of Files and Directories
 
-- **`app.py`**: The main Python file containing the logic for loading the model, tokenizer, and label encoder. It handles the routing for the Flask app, taking user input, predicting bias types, and rendering the result back on the web page.
+- **`app.py`**: The main Python script containing logic for loading the model, tokenizer, and label encoder. It manages the Flask app routes, processes user input, and displays predictions.
 
-- **`Procfile`**: This file is used by platforms like Render or Heroku to run the application. It tells the platform how to start the web service. In this case, it contains `web: python app.py`.
+- **`Procfile`**: Specifies the command used to start the application on platforms like Render or Heroku. Contains `web: python app.py`.
 
-- **`requirements.txt`**: Contains the list of Python dependencies needed to run the app. This file is used to install all the necessary libraries using `pip install -r requirements.txt`.
+- **`requirements.txt`**: Lists all the Python dependencies required for the project. These can be installed using `pip install -r requirements.txt`.
 
-- **`model/`**: A directory that contains the following files:
-  - `bias_predict_model.keras`: The pre-trained machine learning model file.
-  - `tokenizer.pkl`: A pickled object containing the tokenizer used to preprocess input text.
-  - `label_encoder.pkl`: A pickled object that encodes and decodes prediction classes.
+- **`model/`**: Contains the following pre-trained artifacts:
+  - `bias_predict_model.keras`: The machine learning model for bias prediction.
+  - `tokenizer.pkl`: Tokenizer object for preprocessing text inputs.
+  - `label_encoder.pkl`: Encodes and decodes the output classes for bias types.
 
-- **`templates/`**: Contains the `index.html` file which provides the front-end interface for users to interact with the app. The form takes the user input and displays the predicted bias type.
+- **`templates/`**: Contains the `index.html` file, which provides the web interface for users to input text and view predictions.
 
-- **`.idea/`**: This directory contains PyCharm-specific project files. It is generally not necessary for deployment and can be ignored when pushing to a public repository.
+- **`.idea/`**: PyCharm-specific configuration files. These are not necessary for deployment and can be excluded from the repository.
+
+## Implementation in Applications
+
+### **Chat Applications**
+- Use the bias prediction model to process user messages in real-time. 
+  1. Convert the message entered by the user into a string.
+  2. Add the string to a list (e.g., `[message]`) and preprocess it using the tokenizer provided in the model code.
+  3. Use the trained model to predict the bias type and respond accordingly, such as by flagging the message for moderation or giving immediate feedback to the user.
+
+### **Social Media Platforms**
+- Integrate the model into backend systems to automatically analyze posts and comments before publishing.
+  1. Pass user-generated content through the model by preprocessing it as outlined in the shared code.
+  2. If the content is detected as biased or offensive, prevent it from being posted or display a warning to the user about community guidelines.
+
+### **Customer Support Chatbots**
+- Enhance chatbot interactions by filtering potentially biased or offensive user inputs.
+  1. Preprocess each input from the user and predict its bias type.
+  2. If bias is detected, block the message and ask the user to rephrase, or anonymize the input before it reaches a support agent.
+  3. For chatbot-generated responses, validate the response to ensure it remains neutral and unbiased.
 
 ## Setup Instructions
 
@@ -26,7 +67,7 @@ To set up and run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone <[[repository-url]([https://github.com/Adityagupta200/Bias-Predictor](https://github.com/Adityagupta200/Bias-Predictor/tree/master))](https://github.com/Adityagupta200/Bias-Predictor/tree/master)>
+   git clone <repository-url>
    cd <project-directory>
    ```
 
@@ -41,7 +82,7 @@ To set up and run this project locally, follow these steps:
      - `TOKENIZER_PATH`: Path to the tokenizer (e.g., `model/tokenizer.pkl`)
      - `LABEL_ENCODER_PATH`: Path to the label encoder (e.g., `model/label_encoder.pkl`)
 
-   You can set these in your local terminal session, or create a `.env` file for easier management.
+   You can create a `.env` file to manage these variables more easily.
 
 4. Run the Flask app:
    ```bash
@@ -52,8 +93,9 @@ To set up and run this project locally, follow these steps:
 
 ## Example Usage
 
-- Enter a sentence in the input box, and click the "Predict Bias" button.
-- The app will process the input and display the predicted bias type on the same page.
+1. Enter text in the input box on the web interface (e.g., "Why is he working as a nurse? That’s a woman’s job.").
+2. Click the "Predict Bias" button.
+3. The app processes the input and displays the predicted bias type (e.g., "Gender Bias") or indicates "None" if the input text is predicted not to be offensive enough.
 
 ## Video Demonstration
 
@@ -61,3 +103,6 @@ Here is a video demonstrating how the Bias Prediction App works:
 
 [Video Link Placeholder]  
 (Insert link to your project demo video here)
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
