@@ -1,1 +1,1 @@
-Checkout the "master" brach for content.
+Checkout the "master" branch for content.
