@@ -3,6 +3,9 @@
 ## Project Description
 This project provides a web application that predicts the type of bias in a given sentence. It leverages a pre-trained machine learning model built with TensorFlow and Keras to classify user input into different bias categories. The app is designed for potential integration into applications like chatting platforms or social media services to monitor and flag biased or offensive content. The application also uses the `transformers` library to detect offensive language.
 
+## Collaborators: 
+   Parth2006-eng
+
 ## Description of Datasets
 
 ### 1. **`StereoSet.json`**
